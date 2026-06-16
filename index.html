@@ -488,6 +488,42 @@
     .vip-card[data-product="balcony"] { grid-column: 1; }
     .hero__content { padding: 48px 24px; }
   }
+
+  /* Sold-out cards: grayscale */
+  .vip-card[data-product="loge"] .vip-card__thumb-img,
+  .vip-card[data-product="suites"] .vip-card__thumb-img {
+    filter: grayscale(100%);
+  }
+
+  /* LANG SWITCHER */
+  .lang-switcher {
+    position: fixed;
+    top: 20px; right: 24px;
+    z-index: 100;
+    display: flex;
+    gap: 4px;
+    background: rgba(8,12,20,0.85);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px;
+    backdrop-filter: blur(8px);
+  }
+  .lang-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: none;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .lang-btn:hover { color: var(--white); }
+  .lang-btn.active { background: var(--gold); color: var(--dark); }
 </style>
 </head>
 <body>
@@ -500,8 +536,8 @@
   >
   <div class="hero__overlay"></div>
   <div class="hero__content">
-    <p class="hero__eyebrow">Spotify Camp Nou · Barça Business</p>
-    <h1 class="hero__title">
+    <p class="hero__eyebrow" data-es="Spotify Camp Nou · Barça Business" data-en="Spotify Camp Nou · Barça Business" data-ca="Spotify Camp Nou · Barça Business">Spotify Camp Nou · Barça Business</p>
+    <h1 class="hero__title" id="hero-title">
       Mucho más que un<br>asiento <em>VIP</em><br>en el Spotify Camp Nou
     </h1>
   </div>
@@ -513,26 +549,34 @@
   <!-- TEXT: 2 columnas arriba -->
   <div class="content-header">
     <div class="content-header__left">
-      <p class="sidebar__eyebrow">Barça Business · Hospitality</p>
-      <h2 class="sidebar__title">Canon de<br>Acceso</h2>
-      <p class="sidebar__lead">
-        Accede al nuevo modelo de Hospitality basado en la titularidad exclusiva, la flexibilidad y la exclusividad.
+      <p class="sidebar__eyebrow" data-es="Barça Business · Hospitality" data-en="Barça Business · Hospitality" data-ca="Barça Business · Hospitality">Barça Business · Hospitality</p>
+      <h2 class="sidebar__title"><span data-es="Canon de" data-en="Access" data-ca="Cànon">Canon de</span><br><span data-es="Acceso" data-en="Fee" data-ca="d'Accés">Acceso</span></h2>
+      <p class="sidebar__lead" data-es="Accede al nuevo modelo de Hospitality basado en la flexibilidad, exclusividad y control total sobre tu asiento VIP." data-en="Access the new Hospitality model built around flexibility, exclusivity and full control over your VIP seat." data-ca="Accedeix al nou model d'Hospitality basat en la flexibilitat, l'exclusivitat i el control total sobre el teu seient VIP.">
+        Accede al nuevo modelo de Hospitality basado en la flexibilidad, exclusividad y control total sobre tu asiento VIP.
       </p>
-      <a href="#" class="sidebar__cta">Contacta con nosotros →</a>
+      <a href="#" class="sidebar__cta" data-es="Contacta con nosotros →" data-en="Contact us →" data-ca="Contacta amb nosaltres →">Contacta con nosotros →</a>
     </div>
     <div class="content-header__right">
       <div class="sidebar__body">
-        <p>El Club presenta un nuevo modelo de contratación de Hospitality VIP que va más allá del simple acceso a una experiencia premium: te convierte en el titular exclusivo de un asiento VIP en el Spotify Camp Nou.</p>
-        <p>Este modelo te otorga derechos adicionales y mayor flexibilidad, ya que te permite usar el asiento, cederlo al Club si no puedes asistir a un partido o transferir el derecho de titularidad.</p>
-        <p>La disponibilidad es limitada. Solicita información y nuestro equipo te asesorará de forma personalizada para ayudarte a disponer de un asiento VIP en el Spotify Camp Nou.</p>
-        <p>Disfruta de la mejor experiencia blaugrana con un vínculo más profundo, exclusivo y a largo plazo.</p>
+        <p data-es="El Club presenta un nuevo modelo de contratación de Hospitality VIP que va más allá del simple acceso a una experiencia premium: te concede el control total y exclusivo de un asiento VIP en el Spotify Camp Nou."
+           data-en="The Club introduces a new VIP Hospitality model that goes beyond simple access to a premium experience: it gives you full and exclusive control over a VIP seat at Spotify Camp Nou."
+           data-ca="El Club presenta un nou model de contractació d'Hospitality VIP que va més enllà del simple accés a una experiència premium: et concedeix el control total i exclusiu d'un seient VIP a l'Spotify Camp Nou.">El Club presenta un nuevo modelo de contratación de Hospitality VIP que va más allá del simple acceso a una experiencia premium: te concede el control total y exclusivo de un asiento VIP en el Spotify Camp Nou.</p>
+        <p data-es="Este modelo te otorga derechos adicionales y mayor flexibilidad, ya que te permite usar el asiento, cederlo al Club si no puedes asistir a un partido o transferir el derecho contractual."
+           data-en="This model provides additional rights and greater flexibility, allowing you to use your seat, assign it back to the Club if you are unable to attend a match, or transfer your contractual rights."
+           data-ca="Aquest model t'ofereix drets addicionals i una major flexibilitat, ja que et permet utilitzar el seient, cedir-lo al Club si no pots assistir a un partit o transferir el dret contractual.">Este modelo te otorga derechos adicionales y mayor flexibilidad, ya que te permite usar el asiento, cederlo al Club si no puedes asistir a un partido o transferir el derecho contractual.</p>
+        <p data-es="La disponibilidad es limitada. Solicita información y nuestro equipo te asesorará de forma personalizada para ayudarte a disponer de un asiento VIP en el Spotify Camp Nou."
+           data-en="Availability is limited. Request more information and our team will provide personalised guidance to help you secure a VIP seat at Spotify Camp Nou."
+           data-ca="La disponibilitat és limitada. Sol·licita informació i el nostre equip t'assessorarà de manera personalitzada per ajudar-te a disposar d'un seient VIP a l'Spotify Camp Nou.">La disponibilidad es limitada. Solicita información y nuestro equipo te asesorará de forma personalizada para ayudarte a disponer de un asiento VIP en el Spotify Camp Nou.</p>
+        <p data-es="Disfruta de la mejor experiencia blaugrana con un vínculo más profundo, exclusivo y a largo plazo."
+           data-en="Enjoy the ultimate Barça experience through a deeper, more exclusive and long-term connection with the Club."
+           data-ca="Gaudeix de la millor experiència blaugrana amb un vincle més profund, exclusiu i a llarg termini amb el Club.">Disfruta de la mejor experiencia blaugrana con un vínculo más profundo, exclusivo y a largo plazo.</p>
       </div>
     </div>
   </div>
 
   <!-- VIP SEATS LABEL -->
   <div class="grid-header">
-    <h3 class="grid-header__title">VIP Seats</h3>
+    <h3 class="grid-header__title" data-es="VIP Seats" data-en="VIP Seats" data-ca="VIP Seats">VIP Seats</h3>
     <div class="grid-header__line"></div>
     <span class="grid-header__count">6 opciones</span>
   </div>
@@ -546,14 +590,14 @@
     <div class="vip-card__base-overlay"></div>
     <span class="vip-card__badge">Más popular</span>
     <div class="vip-card__static">
-      <p class="vip-card__static-label">Primer Anillo VIP</p>
+      <p class="vip-card__static-label" data-es="Primer Anillo VIP" data-en="First VIP Ring" data-ca="Primer Anell VIP">Primer Anillo VIP</p>
       <p class="vip-card__static-name">VIP Ring</p>
-      <span class="vip-card__tag vip-card__tag--limited">Aforo limitado</span>
+      <span class="vip-card__tag vip-card__tag--limited" data-es="Aforo limitado" data-en="Limited capacity" data-ca="Aforament limitat">Aforo limitado</span>
     </div>
     <div class="vip-card__hover-overlay">
       <p class="vip-card__label">Primer Anillo VIP</p>
       <h3 class="vip-card__name">VIP Ring</h3>
-      <p class="vip-card__desc">Disfruta de vistas panorámicas y exclusividad en VIP Ring. La posición más privilegiada del Spotify Camp Nou, con acceso a zonas privadas y servicios premium.</p>
+      <p class="vip-card__desc" data-es="Disfruta de vistas panorámicas y exclusividad en VIP Ring. La posición más privilegiada del Spotify Camp Nou, con acceso a zonas privadas y servicios premium." data-en="Enjoy panoramic views and exclusivity in VIP Ring. The most privileged position at Spotify Camp Nou, with access to private areas and premium services." data-ca="Gaudeix de vistes panoràmiques i exclusivitat al VIP Ring. La posició més privilegiada de l'Spotify Camp Nou, amb accés a zones privades i serveis premium.">Disfruta de vistas panorámicas y exclusividad en VIP Ring. La posición más privilegiada del Spotify Camp Nou, con acceso a zonas privadas y servicios premium.</p>
       <div class="vip-card__footer">
         <span class="vip-card__tag vip-card__tag--limited">Aforo limitado</span>
         <span class="vip-card__arrow">→</span>
@@ -567,14 +611,14 @@
     <div class="vip-card__base-overlay"></div>
     
     <div class="vip-card__static">
-      <p class="vip-card__static-label">Vista en Primera Fila</p>
+      <p class="vip-card__static-label" data-es="Vista en Primera Fila" data-en="Front Row View" data-ca="Vista en Primera Fila">Vista en Primera Fila</p>
       <p class="vip-card__static-name">Balcony Seats</p>
       <span class="vip-card__tag vip-card__tag--limited">Aforo limitado</span>
     </div>
     <div class="vip-card__hover-overlay">
       <p class="vip-card__label">Vista en Primera Fila</p>
       <h3 class="vip-card__name">Balcony Seats</h3>
-      <p class="vip-card__desc">Disfruta de una vista privilegiada del estadio desde los Balcony Seats.</p>
+      <p class="vip-card__desc" data-es="Disfruta de una vista privilegiada del estadio desde los Balcony Seats." data-en="Enjoy a privileged view of the stadium from the Balcony Seats." data-ca="Gaudeix d'una vista privilegiada de l'estadi des dels Balcony Seats.">Disfruta de una vista privilegiada del estadio desde los Balcony Seats.</p>
       <div class="vip-card__footer">
         <span class="vip-card__tag vip-card__tag--limited">Aforo limitado</span>
         <span class="vip-card__arrow">→</span>
@@ -588,14 +632,14 @@
     <div class="vip-card__base-overlay"></div>
     
     <div class="vip-card__static">
-      <p class="vip-card__static-label">Nivel de campo</p>
+      <p class="vip-card__static-label" data-es="Nivel de campo" data-en="Pitch level" data-ca="Nivell de camp">Nivel de campo</p>
       <p class="vip-card__static-name">Pitch Row</p>
       <span class="vip-card__tag vip-card__tag--limited">Aforo limitado</span>
     </div>
     <div class="vip-card__hover-overlay">
       <p class="vip-card__label">Nivel de campo</p>
       <h3 class="vip-card__name">Pitch Row</h3>
-      <p class="vip-card__desc">Siente toda la energía e intensidad del partido en los asientos VIP de la Pitch Row.</p>
+      <p class="vip-card__desc" data-es="Siente toda la energía e intensidad del partido en los asientos VIP de la Pitch Row." data-en="Feel the full energy and intensity of the match from the VIP Pitch Row seats." data-ca="Sent tota l'energia i intensitat del partit des dels seients VIP de la Pitch Row.">Siente toda la energía e intensidad del partido en los asientos VIP de la Pitch Row.</p>
       <div class="vip-card__footer">
         <span class="vip-card__tag vip-card__tag--limited">Aforo limitado</span>
         <span class="vip-card__arrow">→</span>
@@ -609,14 +653,14 @@
     <div class="vip-card__base-overlay"></div>
     
     <div class="vip-card__static">
-      <p class="vip-card__static-label">Experiencia única</p>
+      <p class="vip-card__static-label" data-es="Experiencia única" data-en="Unique experience" data-ca="Experiència única">Experiencia única</p>
       <p class="vip-card__static-name">Players Zone</p>
       <span class="vip-card__tag vip-card__tag--limited">Aforo limitado</span>
     </div>
     <div class="vip-card__hover-overlay">
       <p class="vip-card__label">Experiencia única</p>
       <h3 class="vip-card__name">Players Zone</h3>
-      <p class="vip-card__desc">Sumérgete en la emoción del FC Barcelona desde nuestros exclusivos asientos VIP de la Players Zone.</p>
+      <p class="vip-card__desc" data-es="Sumérgete en la emoción del FC Barcelona desde nuestros exclusivos asientos VIP de la Players Zone." data-en="Immerse yourself in the excitement of FC Barcelona from our exclusive VIP seats in the Players Zone." data-ca="Submergeix-te en l'emoció del FC Barcelona des dels nostres exclusius seients VIP de la Players Zone.">Sumérgete en la emoción del FC Barcelona desde nuestros exclusivos asientos VIP de la Players Zone.</p>
       <div class="vip-card__footer">
         <span class="vip-card__tag vip-card__tag--limited">Aforo limitado</span>
         <span class="vip-card__arrow">→</span>
@@ -630,14 +674,14 @@
     <div class="vip-card__base-overlay"></div>
     
     <div class="vip-card__static">
-      <p class="vip-card__static-label">Nivel superior</p>
+      <p class="vip-card__static-label" data-es="Nivel superior" data-en="Upper level" data-ca="Nivell superior">Nivel superior</p>
       <p class="vip-card__static-name">Loge</p>
-      <span class="vip-card__tag vip-card__tag--sold">Agotado</span>
+      <span class="vip-card__tag vip-card__tag--sold" data-es="Agotado" data-en="Sold out" data-ca="Esgotat">Agotado</span>
     </div>
     <div class="vip-card__hover-overlay">
       <p class="vip-card__label">Nivel superior</p>
       <h3 class="vip-card__name">Loge</h3>
-      <p class="vip-card__desc">Una experiencia premium en altura con acceso a servicios exclusivos y las mejores vistas del estadio.</p>
+      <p class="vip-card__desc" data-es="Una experiencia premium en altura con acceso a servicios exclusivos y las mejores vistas del estadio." data-en="A premium elevated experience with access to exclusive services and the best views of the stadium." data-ca="Una experiència premium en altura amb accés a serveis exclusius i les millors vistes de l'estadi.">Una experiencia premium en altura con acceso a servicios exclusivos y las mejores vistas del estadio.</p>
       <div class="vip-card__footer">
         <span class="vip-card__tag vip-card__tag--sold">Agotado</span>
         <span class="vip-card__arrow">→</span>
@@ -651,14 +695,14 @@
     <div class="vip-card__base-overlay"></div>
     
     <div class="vip-card__static">
-      <p class="vip-card__static-label">Máxima exclusividad</p>
+      <p class="vip-card__static-label" data-es="Máxima exclusividad" data-en="Maximum exclusivity" data-ca="Màxima exclusivitat">Máxima exclusividad</p>
       <p class="vip-card__static-name">Suites & Boxes</p>
       <span class="vip-card__tag vip-card__tag--sold">Agotado</span>
     </div>
     <div class="vip-card__hover-overlay">
       <p class="vip-card__label">Máxima exclusividad</p>
       <h3 class="vip-card__name">Suites & Boxes</h3>
-      <p class="vip-card__desc">La experiencia más exclusiva del Spotify Camp Nou. Espacio privado con servicio personalizado.</p>
+      <p class="vip-card__desc" data-es="La experiencia más exclusiva del Spotify Camp Nou. Espacio privado con servicio personalizado." data-en="The most exclusive experience at Spotify Camp Nou. Private space with personalised service." data-ca="L'experiència més exclusiva de l'Spotify Camp Nou. Espai privat amb servei personalitzat.">La experiencia más exclusiva del Spotify Camp Nou. Espacio privado con servicio personalizado.</p>
       <div class="vip-card__footer">
         <span class="vip-card__tag vip-card__tag--sold">Agotado</span>
         <span class="vip-card__arrow">→</span>
@@ -671,5 +715,29 @@
 
 
 
+
+<div class="lang-switcher">
+  <button class="lang-btn active" onclick="setLang('es')">ES</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('ca')">CA</button>
+</div>
+
+<script>
+const titles = {
+  es: 'Mucho más que un<br>asiento <em>VIP</em><br>en el Spotify Camp Nou',
+  en: 'Much more than a<br><em>VIP</em> seat at the<br>Spotify Camp Nou',
+  ca: 'Molt més que un<br>seient <em>VIP</em><br>al Spotify Camp Nou'
+};
+
+function setLang(lang) {
+  document.querySelectorAll('[data-es]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + lang) || el.getAttribute('data-es');
+  });
+  document.getElementById('hero-title').innerHTML = titles[lang];
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+}
+</script>
 </body>
 </html>
